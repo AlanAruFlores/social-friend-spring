@@ -1,12 +1,33 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="common::head"></div>
 </head>
-<body>
-    <h1>Bienvenida!!</h1>
+<body class="w-100 overflow-x-hidden " style="height:100vh">
+    <header  class="w-100 bg-black">
+        <nav th:replace="common::header">
+        </nav>
+    </header>
 
-    <footer>
+    <div class="bg-black text-white rounded w-75 h-50 d-block mx-auto my-4" style="max-width: 380px">
+        <h1 clasS="fs-2 text-center py-3">Login</h1>
+        <div class="container d-flex flex-column gap-3 mt-2">
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+            </div>
+            <div class="input-group flex-nowrap">
+                <span class="input-group-text" id="addon-wrapping2"><i class="fa-solid fa-key"></i></span>
+                <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping2">
+            </div>
+        </div>
+        <div class="mx-auto text-center w-75 mt-4">
+            <h5>¿No tienes una cuenta?</h5>
+            <p>Haga click aca para registrarse: <a href="#">Registrarse</a></p>
+        </div>
+    </div>
+
+    <footer class="position-absolute bottom-0 left-0 w-100 bg-black mt-2">
         <div th:replace="common::footer"></div>
     </footer>
 </body>
