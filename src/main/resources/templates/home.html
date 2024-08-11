@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="common::head"></div>
+</head>
+<body class="w-100 overflow-x-hidden " style="height:100vh">
+<header  class="w-100 bg-dark">
+    <nav th:replace="common::header_home">
+    </nav>
+</header>
+
+<main class="w-100">
+    <div class="w-75 mx-auto row py-4" style="max-width: 950px">
+        <div class="col-9 p-2" style="height:auto">
+            <h2>Ultimas publicaciones:</h2>
+            <div class="d-flex flex-column gap-4">
+                <div class="card">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <img th:src="@{/images/publicacion_1.jpg}" class="w-100" alt="imagen">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <img th:src="@{/images/publicacion_1.jpg}" class="w-100" alt="imagen">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <img th:src="@{/images/publicacion_1.jpg}" class="w-100" alt="imagen">
+                        <h5 class="card-title">Special title treatment</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="bg-secondary col-3" style="height:100vh; margin-top: 55px">
+            <h3 class="fs-5t text-white text-center py-2">Chats</h3>
+        </div>
+    </div>
+</main>
+
+<footer class="w-100 bg-dark mt-2">
+    <div th:replace="common::footer"></div>
+</footer>
+</body>
+</html>
