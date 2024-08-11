@@ -9,7 +9,7 @@
         </nav>
     </header>
 
-    <div class="bg-black text-white rounded w-75 h-50 d-block mx-auto my-4" style="max-width: 380px">
+    <form class="bg-black text-white rounded w-75 d-block mx-auto my-4 py-4" style="max-width: 380px">
         <h1 clasS="fs-2 text-center py-3">Login</h1>
         <div class="container d-flex flex-column gap-3 mt-2">
             <div class="input-group flex-nowrap">
@@ -22,12 +22,13 @@
             </div>
         </div>
         <div class="mx-auto text-center w-75 mt-4">
+            <button class="btn btn-primary btn-lg my-4">Login</button>
             <h5>¿No tienes una cuenta?</h5>
-            <p>Haga click aca para registrarse: <a href="#">Registrarse</a></p>
+            <p>Haga click aca para registrarse: <a th:href="@{/registro/}">Registrarse</a></p>
         </div>
-    </div>
+    </form>
 
-    <footer class="position-absolute bottom-0 left-0 w-100 bg-black mt-2">
+    <footer class="w-100 bg-black mt-2">
         <div th:replace="common::footer"></div>
     </footer>
 </body>
