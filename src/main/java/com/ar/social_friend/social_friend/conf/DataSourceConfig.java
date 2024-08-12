@@ -115,7 +115,7 @@ public class DataSourceConfig implements WebMvcConfigurer {
     }
 
 
-    @Bean
+    @Bean(name="transactionManager")
     public PlatformTransactionManager getPlatformTransactionManager(EntityManagerFactory entityManagerFactory){
         JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
         jpaTransactionManager.setEntityManagerFactory(entityManagerFactory);
