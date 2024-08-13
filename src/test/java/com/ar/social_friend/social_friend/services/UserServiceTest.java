@@ -55,8 +55,4 @@ public class UserServiceTest {
         assertNotNull(results);
         assertEquals(count, results.size());
     }
-
-    private void thenIExpectResultNotFoundException(){
-
-    }
 }
