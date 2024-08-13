@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 
 import com.ar.social_friend.social_friend.DataProvider;
 import com.ar.social_friend.social_friend.domain.User;
+import com.ar.social_friend.social_friend.exceptions.UserNotFoundException;
 import com.ar.social_friend.social_friend.services.LoginService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -35,7 +36,7 @@ public class LoginControllerTest {
     }
 
     @Test
-    public void testICanAccessToTheMainPage() {
+    public void testICanAccessToTheMainPage() throws UserNotFoundException {
         User user = DataProvider.getNewUser();
         when(this.loginService.searchUserByUsernameAndPassword(user)).thenReturn(new User());
         String view = this.loginController.access();
