@@ -8,6 +8,10 @@
         <nav th:replace="common::header__main">
         </nav>
     </header>
+    <div th:if="${success != null}" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Registro exitoso!</strong> Ahora puedes loguearte en el sistema
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
     <form class="bg-dark text-white rounded w-75 d-block mx-auto my-4 py-4" style="max-width: 380px">
         <h1 clasS="fs-2 text-center py-3">Login</h1>

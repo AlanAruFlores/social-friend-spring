@@ -2,6 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="common::head"></div>
+    <style>
+        .has-error{
+            color:red;
+            font-size: 20px;
+        }
+    </style>
 </head>
 <body class="w-100 overflow-x-hidden " style="height:100vh">
 <header  class="w-100 bg-dark">
@@ -11,38 +17,66 @@
 
 <div class="bg-dark text-white rounded w-75 d-block mx-auto my-4" style="max-width: 380px">
     <h1 clasS="fs-2 text-center py-3">Registrarse</h1>
-    <form class="container d-flex flex-column gap-3 mt-2" th:action="@{/registro/crear-cuenta}" th:object="${user}">
+    <form class="container d-flex flex-column gap-3 mt-2" th:action="@{/registro/crear-cuenta}" th:object="${user}" method="post">
         <div class="form-group flex-nowrap">
             <label class="form-label">Nombre</label>
-            <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="addon-wrapping" th:field="*{name}">
+            <input type="text" id="name" name="name" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="addon-wrapping" th:field="*{name}">
+            <div>
+                <span class="has-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">
+                </span>
+            </div>
         </div>
         <div class="form-group flex-nowrap">
             <label class="form-label">Apellido</label>
-            <input type="text" class="form-control" placeholder="Apellido" aria-label="Apellido" aria-describedby="addon-wrapping" th:field="*{surname}">
+            <input type="text" id="surname" name="surname" class="form-control" placeholder="Apellido" aria-label="Apellido" aria-describedby="addon-wrapping" th:field="*{surname}">
+            <div>
+                <span class="has-error" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">
+                </span>
+            </div>
         </div>
         <div class="form-group flex-nowrap">
             <label class="form-label">Correo Electronico</label>
-            <input type="email" class="form-control" placeholder="Correo Electronico" aria-label="Correo Electronico" aria-describedby="addon-wrapping" th:field="*{email}">
+            <input type="email" id="email" name="email"class="form-control" placeholder="Correo Electronico" aria-label="Correo Electronico" aria-describedby="addon-wrapping" th:field="*{email}">
+            <div>
+                <span class="has-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                </span>
+            </div>
         </div>
 
         <div class="form-group flex-nowrap">
             <label class="form-label">Fecha de Nacimiento</label>
-            <input type="date" class="form-control" aria-label="Correo Electronico" aria-describedby="addon-wrapping" th:field="*{birthDate}">
+            <input type="date" id="birthDate" name="birthDate" class="form-control" aria-label="Correo Electronico" aria-describedby="addon-wrapping" th:field="*{birthDate}">
+            <div>
+                <span class="has-error" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">
+                </span>
+            </div>
         </div>
 
         <div class="form-group flex-nowrap">
             <label class="form-label">Telefono</label>
-            <input type="tel" class="form-control" aria-label="Correo Electronico" aria-describedby="addon-wrapping" th:field="*{phoneNumber}">
+            <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" aria-label="telefono" aria-describedby="addon-wrapping" th:field="*{phoneNumber}">
+            <div>
+                <span class="has-error" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">
+                </span>
+            </div>
         </div>
 
         <div class="form-group flex-nowrap">
             <label class="form-label">Nombre de usuario</label>
-            <input type="text" class="form-control" placeholder="usuario" aria-label="usuario" aria-describedby="addon-wrapping" th:field="*{username}">
+            <input type="text" id="username" name="username" class="form-control" placeholder="usuario" aria-label="usuario" aria-describedby="addon-wrapping" th:field="*{username}">
+            <div>
+                <span class="has-error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">
+                </span>
+            </div>
         </div>
 
         <div class="form-group flex-nowrap">
             <label class="form-label">Contraseña</label>
-            <input type="text" class="form-control" placeholder="contraseña" aria-label="usuario" aria-describedby="addon-wrapping" th:field="*{password}">
+            <input type="text" id="password" name="password" class="form-control" placeholder="contraseña" aria-label="usuario" aria-describedby="addon-wrapping" th:field="*{password}">
+            <div>
+                <span class="has-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+                </span>
+            </div>
         </div>
 
         <div class="mx-auto text-center w-75 mt-4">
