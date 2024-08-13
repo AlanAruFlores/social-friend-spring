@@ -54,5 +54,34 @@ public class UserRepositoryTest {
         assertEquals(user.getPassword(), result.getPassword());
     }
 
+    @Test
+    @Transactional
+    @Rollback(value=true)
+    public void testICanGetUsersByUsername(){
+        String userName = "username";
+        List<User> list = DataProvider.getUsers();
+
+        /*when*/
+        this.userRepository.saveAll(list);
+        List<User> results = this.userRepository.findAllByUsernameContainsIgnoreCase(userName);
+
+        assertNotNull(results);
+        assertEquals(4, results.size());
+    }
+
+    @Test
+    @Transactional
+    @Rollback(value=true)
+    public void testICaNNOTGetUsersByUsername(){
+        String userName = "asdoamdk";
+        List<User> list = DataProvider.getUsers();
+
+        /*when*/
+        this.userRepository.saveAll(list);
+        List<User> results = this.userRepository.findAllByUsernameContainsIgnoreCase(userName);
+
+        assertNotNull(results);
+        assertEquals(0, results.size());
+    }
 
 }
