@@ -15,6 +15,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Base64;
+
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 public class LoginServiceTest {
@@ -24,9 +26,17 @@ public class LoginServiceTest {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private Base64.Encoder encode;
+
+    @Mock
+    private Base64.Decoder decode;
+
     @Test
     public void testICanSearchAUserByUserNameAndPassword() throws UserNotFoundException {
         User user = DataProvider.getNewUser();
+
+        when(encode.encodeToString(user.getPassword().getBytes())).thenReturn(user.getPassword());
 
         when(this.userRepository.findUserByUsernameAndPassword(user.getUsername(), user.getPassword())).thenReturn(user);
         User result = this.loginService.searchUserByUsernameAndPassword(user);
@@ -38,6 +48,8 @@ public class LoginServiceTest {
     @Test
     public void testICanNOTGetAUserByUserNameAndPassword() {
         User user = DataProvider.getNewUser();
+        when(encode.encodeToString(user.getPassword().getBytes())).thenReturn(user.getPassword());
+
         when(this.userRepository.findUserByUsernameAndPassword(user.getUsername(), user.getPassword())).thenReturn(null);
 
         assertThrows(UserNotFoundException.class, () -> {
