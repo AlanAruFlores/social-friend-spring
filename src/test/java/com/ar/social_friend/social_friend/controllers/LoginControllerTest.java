@@ -38,13 +38,18 @@ public class LoginControllerTest {
     @Test
     public void testICanAccessToTheMainPage() throws UserNotFoundException {
         User user = DataProvider.getNewUser();
-        when(this.loginService.searchUserByUsernameAndPassword(user)).thenReturn(new User());
-        String view = this.loginController.access();
-
+        when(this.loginService.searchUserByUsernameAndPassword(user)).thenReturn(user);
+        String view = this.loginController.access(user);
         assertEquals("home", view);
-
     }
 
+    @Test
+    public void testICanNotAccessToTheMainPage() throws UserNotFoundException {
+        User user = DataProvider.getNewUser();
+        when(this.loginService.searchUserByUsernameAndPassword(user)).thenThrow(UserNotFoundException.class);
+        String view = this.loginController.access(user);
+        assertEquals("redirect:/login/", view);
+    }
 
 
 }

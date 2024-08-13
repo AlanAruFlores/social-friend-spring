@@ -121,6 +121,7 @@
 								<exclude>**/SocialFriendApplication.class</exclude>
 								<exclude>**/conf/**</exclude>
 								<exclude>**/domain/**</exclude>
+								<exclude>**/exceptions/**</exclude>
 							</excludes>
 						</configuration>
 					</execution>
