@@ -9,6 +9,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashSet;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,5 +37,22 @@ public class UserRepositoryTest {
         assertFalse(this.userRepository.findAll().isEmpty());
         assertEquals(n, this.userRepository.count());
     }
+
+
+    @Test
+    @Transactional
+    @Rollback(value=true)
+    public void testICanGetUserByUsernameAndPassword(){
+        List<User> list = DataProvider.getUsers();
+        User user = DataProvider.getNewUser();
+
+        this.userRepository.saveAll(list);
+        User result = this.userRepository.findUserByUsernameAndPassword(user.getUsername(), user.getPassword());
+
+        assertNotNull(result);
+        assertEquals(user.getUsername(), result.getUsername());
+        assertEquals(user.getPassword(), result.getPassword());
+    }
+
 
 }
