@@ -1,6 +1,7 @@
 package com.ar.social_friend.social_friend.services.impl;
 
 import com.ar.social_friend.social_friend.domain.User;
+import com.ar.social_friend.social_friend.dto.UserMapper;
 import com.ar.social_friend.social_friend.dto.UserSearchDTO;
 import com.ar.social_friend.social_friend.exceptions.ResultsNotFoundException;
 import com.ar.social_friend.social_friend.repositories.UserRepository;
@@ -28,7 +29,10 @@ public class UserServiceImpl implements UserService {
         if(results.isEmpty())
             throw new ResultsNotFoundException();
 
-        List<UserSearchDTO> resultsDTO = results.stream().map(res -> new UserSearchDTO(res.getId(),res.getUsername())).collect(Collectors.toList());
-        return resultsDTO;
+
+        //List<UserSearchDTO> resultsDTO = results.stream().map(res -> new UserSearchDTO(res.getId(),res.getUsername())).collect(Collectors.toList());
+
+        //Devuelvo lista de DTOS usando MapStruct
+        return results.stream().map(UserMapper.userMapper::userToUserSearchDTO).collect(Collectors.toList());
     }
 }
