@@ -48,7 +48,7 @@ public class HomeControllerTest {
     public void testSearchUsers() throws ResultsNotFoundException {
         String toSearch="name";
 
-        when(this.userService.searchUsersByUsername(toSearch)).thenReturn(DataProvider.getUsers());
+        when(this.userService.searchUsersByUsername(toSearch)).thenReturn(DataProvider.getUsersDTO());
 
         String view = this.homeControlller.searchUsers(toSearch,model);
         assertEquals("users_search", view);

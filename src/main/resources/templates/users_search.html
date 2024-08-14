@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="common::head"></div>
+</head>
+<body class="w-100 overflow-x-hidden " style="height:100vh">
+<header  class="w-100 bg-dark">
+    <nav th:replace="common::header_home">
+    </nav>
+</header>
+
+<main class="w-100">
+    <div class="w-75 mx-auto row py-4" style="max-width: 950px">
+        <div class="col-9 p-2" style="height:auto">
+            <h2>Busquedas relacionadas:</h2>
+
+            <ul th:each="user : ${results}">
+                <li th:text="${user.username}"></li>
+            </ul>
+        </div>
+
+
+        <div class="bg-secondary col-3" style="height:100vh; margin-top: 55px">
+            <h3 class="fs-5t text-white text-center py-2">Chats</h3>
+        </div>
+    </div>
+</main>
+
+<footer class="w-100 bg-dark mt-2">
+    <div th:replace="common::footer"></div>
+</footer>
+</body>
+</html>

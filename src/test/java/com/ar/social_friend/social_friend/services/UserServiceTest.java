@@ -2,6 +2,7 @@ package com.ar.social_friend.social_friend.services;
 
 import com.ar.social_friend.social_friend.DataProvider;
 import com.ar.social_friend.social_friend.domain.User;
+import com.ar.social_friend.social_friend.dto.UserSearchDTO;
 import com.ar.social_friend.social_friend.exceptions.ResultsNotFoundException;
 import com.ar.social_friend.social_friend.repositories.UserRepository;
 import com.ar.social_friend.social_friend.services.impl.UserServiceImpl;
@@ -29,7 +30,7 @@ public class UserServiceTest {
     @Test
     public void testICanSearchUsersByUsername() throws ResultsNotFoundException {
         String username = "username";
-        List<User> results = whenIWantToSearchByUsername(username, DataProvider.getUsers());
+        List<UserSearchDTO> results = whenIWantToSearchByUsername(username, DataProvider.getUsersDTO());
         thenResultsToExpect(4,results);
     }
 
@@ -42,16 +43,16 @@ public class UserServiceTest {
         assertThrows(ResultsNotFoundException.class, ()->whenIWantToSearchByUsername(username,List.of()));
     }
 
-    private List<User> whenIWantToSearchByUsername(String username, List<User> expected) throws ResultsNotFoundException {
+    private List<UserSearchDTO> whenIWantToSearchByUsername(String username, List<UserSearchDTO> expected) throws ResultsNotFoundException {
         if(!expected.isEmpty())
-            when(this.userRepository.findAllByUsernameContainsIgnoreCase(username)).thenReturn(expected);
+            when(this.userRepository.findAllByUsernameContainsIgnoreCase(username)).thenReturn(DataProvider.getUsers());
         else
             when(this.userService.searchUsersByUsername(username)).thenThrow(ResultsNotFoundException.class);
 
         return this.userService.searchUsersByUsername(username);
     }
 
-    private void thenResultsToExpect(Integer count, List<User> results){
+    private void thenResultsToExpect(Integer count, List<UserSearchDTO> results){
         assertNotNull(results);
         assertEquals(count, results.size());
     }

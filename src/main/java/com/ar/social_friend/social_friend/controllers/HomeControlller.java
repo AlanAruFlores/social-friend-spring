@@ -34,7 +34,7 @@ public class HomeControlller {
     public String searchUsers(String username, Model model){
 
         try{
-            List<User> results = userService.searchUsersByUsername(username);
+            List<UserSearchDTO> results = userService.searchUsersByUsername(username);
             model.addAttribute("results", results);
         }catch (ResultsNotFoundException ex){
             model.addAttribute("error", "No hay resultados");
