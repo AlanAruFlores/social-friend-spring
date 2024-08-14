@@ -1,11 +1,13 @@
 package com.ar.social_friend.social_friend.controllers;
 
 import com.ar.social_friend.social_friend.domain.User;
+import com.ar.social_friend.social_friend.dto.UserSearchDTO;
 import com.ar.social_friend.social_friend.exceptions.ResultsNotFoundException;
 import com.ar.social_friend.social_friend.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,15 +25,16 @@ public class HomeControlller {
     }
 
     @RequestMapping("/")
-    public String home() {
+    public String home(Model model) {
+        model.addAttribute("userToSearch", new UserSearchDTO());
         return "home";
     }
 
-    @RequestMapping(value = "/search-users", method = RequestMethod.POST)
-    public String searchUsers(String toSearch, Model model){
+    @RequestMapping(value = "/search-users", method = RequestMethod.GET)
+    public String searchUsers(String username, Model model){
 
         try{
-            List<User> results = userService.searchUsersByUsername(toSearch);
+            List<User> results = userService.searchUsersByUsername(username);
             model.addAttribute("results", results);
         }catch (ResultsNotFoundException ex){
             model.addAttribute("error", "No hay resultados");

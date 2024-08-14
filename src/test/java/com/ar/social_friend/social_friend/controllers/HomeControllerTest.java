@@ -41,7 +41,7 @@ public class HomeControllerTest {
     }
 
     private String whenGoToHomePage() {
-        return this.homeControlller.home();
+        return this.homeControlller.home(model);
     }
 
     @Test

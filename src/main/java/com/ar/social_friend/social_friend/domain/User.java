@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -40,7 +41,7 @@ public class User {
                     @JoinColumn(name= "friend_id")
             }
     )
-    private Set<User> listUsers;
+    private Set<User> listUsers = new HashSet<>();
 
 
     public User(Long id, String username, String password, String name, String surname, String email, String phoneNumber) {
