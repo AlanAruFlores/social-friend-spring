@@ -3,41 +3,37 @@
 <head>
     <div th:replace="common::head"></div>
 </head>
-<body class="w-100 overflow-x-hidden " style="height:100vh">
-    <header  class="w-100 bg-dark">
-        <nav th:replace="common::header__main">
-        </nav>
-    </header>
-    <div th:if="${error != null}" class="alert alert-danger alert-dismissible fade show" role="alert">
-        <p th:text="${error}"></p>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <div th:if="${success != null}" class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Registro exitoso!</strong> Ahora puedes loguearte en el sistema
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+<body class="w-100 overflow-x-hidden d-flex justify-content-center align-items-center bg-black" style="height:100vh">
 
-    <form th:action="@{|/login/access|}" class="bg-dark text-white rounded w-75 d-block mx-auto my-4 py-4" style="max-width: 380px" th:object="${user}" method="post">
-        <h1 clasS="fs-2 text-center py-3">Login</h1>
-        <div class="container d-flex flex-column gap-3 mt-2">
+
+    <form th:action="@{|/login/access|}" class="bg-dark text-white w-75 d-block mx-auto my-4 p-4" style="max-width: 380px" th:object="${user}" method="post">
+        <h1 clasS="fs-1 text-primary py-3">Hola!</h1>
+        <p>Para acceder a tu cuenta, por favor ingresa tu nombre de usuario y contraseña en los campos correspondientes.</p>
+        <div class="d-flex flex-column gap-3 mt-2">
             <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{username}">
+                <span class="input-group-text bg-dark text-primary rounded-0 border border-primary fs-4" id="addon-wrapping"><i class="fa-solid fa-user"></i></span>
+                <input type="text" class="form-control bg-dark rounded-0 text-primary border-primary fs-5" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping" th:field="*{username}">
             </div>
             <div class="input-group flex-nowrap">
-                <span class="input-group-text" id="addon-wrapping2"><i class="fa-solid fa-key"></i></span>
-                <input type="password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping2" th:field="*{password}">
+                <span class="input-group-text bg-dark text-primary rounded-0 border border-primary fs-4" id="addon-wrapping2"><i class="fa-solid fa-key"></i></span>
+                <input type="password" class="form-control bg-dark rounded-0 text-primary border-primary fs-5" placeholder="Password" aria-label="Username" aria-describedby="addon-wrapping2" th:field="*{password}">
             </div>
         </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary my-4">Acceder</button>
+        </div>
+        <div th:if="${error != null}" class="text-danger text-center" role="alert">
+            <p class="fs-6" th:text="${error}"></p>
+        </div>
+        <div th:if="${success != null}" class="text-success text-center" role="alert">
+            <strong>Registro exitoso!</strong> Ahora puedes loguearte en el sistema
+        </div>
         <div class="mx-auto text-center w-75 mt-4">
-            <button type="submit" class="btn btn-primary btn-lg my-4">Login</button>
+
             <h5>¿No tienes una cuenta?</h5>
             <p>Haga click aca para registrarse: <a th:href="@{|/registro/|}">Registrarse</a></p>
         </div>
     </form>
 
-    <footer class="w-100 bg-dark mt-2">
-        <div th:replace="common::footer"></div>
-    </footer>
 </body>
 </html>
