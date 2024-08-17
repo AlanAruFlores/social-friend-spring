@@ -4,62 +4,150 @@
     <div th:replace="common::head"></div>
 </head>
 <body class="w-100 overflow-x-hidden " style="height:100vh">
-<header  class="w-100 bg-dark">
+<header  class="w-100" style="background-color:#121212;">
     <nav th:replace="common::header_home">
     </nav>
 </header>
 
-<main class="w-100">
+<main class="w-100 bg-black">
     <div class="w-75 mx-auto row py-4" style="max-width: 950px">
-        <div class="col-9 p-2" style="height:auto">
-            <h2>Ultimas publicaciones:</h2>
-            <div class="d-flex flex-column gap-4">
-                <div class="card">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <img th:src="@{|/images/publicacion_1.jpg|}" class="w-100" alt="imagen">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+        <div class="col-4 d-flex flex-column gap-3" style="width: 200px">
+            <div class="d-flex p-2 rounded align-items-center gap-3" style="background-color: #121212; height: 80px;">
+                <div>
+                    <img th:src="@{/images/man.jpg}" alt="man" width="35" height="35" class="rounded-circle">
                 </div>
-
-                <div class="card">
-                    <div class="card-header">
-                        Featured
-                    </div>
-                    <div class="card-body">
-                        <img th:src="@{|/images/publicacion_1.jpg|}" class="w-100" alt="imagen">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+                <div>
+                    <h6 class="mb-0">Alan</h6>
+                    <span class="text-body-secondary">@ali</span>
                 </div>
+            </div>
+            <div class="rounded" style="background-color: #121212; height:auto;">
+                <ul class="list-group gap-2 p-2">
+                    <li class="list-group-item border-0 d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                            <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"/>
+                        </svg>
+                        Home
+                    </li>
+                    <li class="list-group-item border-0  d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+                            <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
+                        </svg>
+                        Notificaciones</li>
+                    <li class="list-group-item border-0  d-flex align-items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+                            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+                        </svg>
+                        Chat
+                    </li>
+                </ul>
+            </div>
 
-                <div class="card">
-                    <div class="card-header">
-                        Featured
+            <a class="btn btn-primary">Publica algo!</a>
+        </div>
+        <div class="col-6 d-flex flex-column gap-3">
+            <div class="rounded d-flex gap-2 align-items-center p-2" style="background-color: #121212;">
+                <div>
+                    <img th:src="@{/images/man.jpg}" class="rounded-circle" alt="man" height="35" width="35">
+                </div>
+                <input type="text" class="bg-transparent text-body-secondary border-0 w-75" placeholder="En que estas pensando?" >
+                <button class="btn btn-primary btn-sm">Publicar</button>
+            </div>
+            <div class="rounded d-flex gap-2 align-items-center p-2" style="background-color: #121212;" >
+                <div>
+                    <div class="d-flex gap-2">
+                        <img th:src="@{/images/man.jpg}" width="35" height="35" class="rounded-circle">
+                        <div class="">
+                            <h6 class="mb-0">Alan</h6>
+                            <span class="text-body-secondary">@ali</span>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <img th:src="@{|/images/publicacion_1.jpg|}" class="w-100" alt="imagen">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div>
+                        <h4 class="fs-5">Aca con mis compas</h4>
+                        <p class="fs-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores error hic illum in ipsa natus nisi porro sit unde vitae!</p>
+                        <img th:src="@{/images/publicacion_1.jpg}" class="w-100 rounded">
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-3 d-flex flex-column gap-3">
+            <div class="rounded p-2" style="background-color: #121212">
+                <h6>Chat</h6>
+                <ul class="list-group">
+                    <li class="list-group-item border-0 d-flex gap-2 align-items-center">
+                        <img th:src="@{/images/man2.jpg}" width="35" height="35" class="rounded-circle">
+                        <div class="">
+                            <h6 class="mb-0">Alan</h6>
+                            <span class="text-body-secondary">Hola</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item border-0 d-flex gap-2 align-items-center">
+                        <img th:src="@{/images/man2.jpg}" width="35" height="35" class="rounded-circle">
+                        <div class="">
+                            <h6 class="mb-0">Alan</h6>
+                            <span class="text-body-secondary">Hola</span>
+                        </div>
+                    </li>
+                    <li class="list-group-item border-0 d-flex gap-2 align-items-center">
+                        <img th:src="@{/images/man2.jpg}" width="35" height="35" class="rounded-circle">
+                        <div class="">
+                            <h6 class="mb-0">Alan</h6>
+                            <span class="text-body-secondary">Hola</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
-
-        <div class="bg-secondary col-3" style="height:100vh; margin-top: 55px">
-            <h3 class="fs-5t text-white text-center py-2">Chats</h3>
+            <div class="rounded p-2" style="background-color: #121212">
+                <h6>Solicitudes</h6>
+                <ul class="list-group">
+                    <li class="list-group-item border-0 mt-2 ">
+                        <div class="d-flex gap-2 align-items-center">
+                            <img th:src="@{/images/man2.jpg}" width="35" height="35" class="rounded-circle">
+                            <div class="">
+                                <h6 class="mb-0">Alan</h6>
+                                <span class="text-body-secondary">@ali</span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 mt-2">
+                            <button class="btn btn-primary btn-sm">Aceptar</button>
+                            <button class="btn btn-outline-primary btn-sm">Rechazar</button>
+                        </div>
+                    </li>
+                    <li class="list-group-item border-0 mt-2 ">
+                        <div class="d-flex gap-2 align-items-center">
+                            <img th:src="@{/images/man2.jpg}" width="35" height="35" class="rounded-circle">
+                            <div class="">
+                                <h6 class="mb-0">Alan</h6>
+                                <span class="text-body-secondary">@ali</span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 mt-2">
+                            <button class="btn btn-primary btn-sm">Aceptar</button>
+                            <button class="btn btn-outline-primary btn-sm">Rechazar</button>
+                        </div>
+                    </li>
+                    <li class="list-group-item border-0 mt-2 ">
+                        <div class="d-flex gap-2 align-items-center">
+                            <img th:src="@{/images/man2.jpg}" width="35" height="35" class="rounded-circle">
+                            <div class="">
+                                <h6 class="mb-0">Alan</h6>
+                                <span class="text-body-secondary">@ali</span>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-2 mt-2">
+                            <button class="btn btn-primary btn-sm">Aceptar</button>
+                            <button class="btn btn-outline-primary btn-sm">Rechazar</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </main>
 
-<footer class="w-100 bg-dark mt-2">
+<footer class="w-100 mt-2" style="background-color:#121212;">
     <div th:replace="common::footer"></div>
 </footer>
 </body>

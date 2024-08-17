@@ -10,29 +10,27 @@
 </head>
 <body>
     <header th:fragment="header_home" th:remove="tag">
-        <nav class="navbar navbar-expand-lg bg-dark mx-auto" data-bs-theme="dark" style="max-width: 950px">
-            <div class="container-fluid text-white">
-                <a class="navbar-brand" href="#">SocialFriend</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-expand-lg mx-auto" data-bs-theme="dark" style="background-color:#121212; max-width: 950px">
+            <div class="container-fluid text-white d-flex justify-content-between">
+                <a class="col-3 fw-bold navbar-brand text-primary d-block fs-4" href="#">SocialFriend</a>
+                    <form class="col-6 form-inline d-flex gap-0" th:action="|@{/home/search-users}|" method="GET">
+                        <input class="form-control bg-black text-primary border-primary fs-6 w-75 rounded" type="search" placeholder="Buscar" aria-label="Search" name="username">
 
-                <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Chat</a>
-                        </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0 d-flex gap-2" th:action="|@{/home/search-users}|" method="GET">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search" name="username">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                        <button class="btn bg-black rounded text-primary border-primary" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                            </svg>
+                        </button>
                     </form>
+                <div class="col-3 d-flex justify-content-around">
+                    <button class="btn btn-primary btn-sm rounded px-4 ">
+                        Cerrar Sesion
+                    </button>
+                    <div>
+                        <img th:src="@{/images/man.jpg}" alt="man" width="35" height="35" class="rounded-circle">
+                    </div>
                 </div>
             </div>
-
         </nav>
     </header>
 
